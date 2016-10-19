@@ -1,0 +1,23 @@
+{
+  "name": "orbita-catalog",
+  "version": "1.0.0",
+  "description": "Symfony Standard Edition ========================",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shurale75/orbita-catalog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shurale75/orbita-catalog/issues"
+  },
+  "homepage": "https://github.com/shurale75/orbita-catalog#readme"
+}

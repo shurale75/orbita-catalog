@@ -3,10 +3,12 @@
 namespace Orbita\CatalogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Orbita\CatalogBundle\Entity\Repository\UserRepository")
  * @ORM\Table(name="users")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User
 {
@@ -37,7 +39,7 @@ class User
      */
     public function __construct()
     {
-        $this->sites = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sites = new ArrayCollection();
     }
 
     /**

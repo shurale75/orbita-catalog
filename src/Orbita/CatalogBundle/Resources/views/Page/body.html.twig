@@ -1,0 +1,26 @@
+<section class="section">
+    <header>
+        <h3>Sites</h3>
+    </header>
+    <ul>
+        <li>CATEGORY SITES:</li>
+        {% for site in sites %}
+            <li>
+                <header>
+                    <h2><a href="{{ site.link }}">{{ site.title }}</a></h2>
+                </header>
+
+                <img src="{{ asset(['images/', site.image]|join) }}" />
+                {#<img src="images/{{ site.image }}" />#}
+                <div class="snippet">
+                    <p>{{ site.description(500) }}</p>
+                    <p class="continue"><a href="{{ site.link }}">{{ site.link }}</a></p>
+                </div>
+
+                {{ site.title }}</li>
+
+        {% else %}
+            <p>There are no recent sites</p>
+        {% endfor %}
+    </ul>
+</section>

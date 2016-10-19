@@ -5,11 +5,18 @@ namespace Orbita\CatalogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Orbita\CatalogBundle\Entity\Repository\SiteRepository")
  * @ORM\Table(name="sites")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Site
 {
+    public function __construct()
+    {
+        $this->setCreated(new \DateTime());
+        $this->setUpdated(new \DateTime());
+    }
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
