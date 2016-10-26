@@ -12,3 +12,9 @@ orbita_catalog_category:
 orbita_catalog_users:
     path: /users
     defaults: { _controller: OrbitaCatalogBundle:Users:index }
+
+orbita_catalog_site_create:
+    path:  /add
+    defaults: { _controller: "OrbitaCatalogBundle:Site:create" }
+    requirements:
+        methods:  POST

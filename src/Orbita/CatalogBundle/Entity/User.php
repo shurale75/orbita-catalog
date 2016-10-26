@@ -130,4 +130,9 @@ class User
     {
         return $this->sites;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

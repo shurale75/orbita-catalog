@@ -1,0 +1,8 @@
+{% extends 'OrbitaCatalogBundle::layout.html.twig' %}
+
+{% block title %}Add Site{% endblock%}
+
+{% block body %}
+    <h1>Add new site</h1>
+    {% include 'OrbitaCatalogBundle:Site:form.html.twig' with { 'form': form } %}
+{% endblock %}

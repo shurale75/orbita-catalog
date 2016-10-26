@@ -4,6 +4,7 @@ namespace Orbita\CatalogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass="Orbita\CatalogBundle\Entity\Repository\SiteRepository")
  * @ORM\Table(name="sites")
@@ -13,8 +14,8 @@ class Site
 {
     public function __construct()
     {
-        $this->setCreated(new \DateTime());
-        $this->setUpdated(new \DateTime());
+        //$this->setImage('beach.jpg');
+        $this->setVip(0);
     }
 
     /**
@@ -49,12 +50,12 @@ class Site
     /**
      * @ORM\Column(type="string", length=20)
      */
-    protected $image;
+    protected $image = 'beach.jpg';
 
     /**
      * @ORM\Column(type="integer")
      */
-    protected $vip;
+    protected $vip = 0;
 
     /**
      * @ORM\Column(type="string")
@@ -62,17 +63,17 @@ class Site
     protected $link;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true )
      */
-    protected $status;
+    protected $status = 0;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true )
      */
     protected $created;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $updated;
 
@@ -82,7 +83,7 @@ class Site
     protected $lang;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $grade;
 
@@ -241,15 +242,11 @@ class Site
 
     /**
      * Set created
-     *
-     * @param \DateTime $created
-     * @return Site
+     * @ORM\PrePersist
      */
-    public function setCreated($created)
+    public function setCreated()
     {
-        $this->created = $created;
-
-        return $this;
+        $this->created = new \DateTime();
     }
 
     /**
@@ -264,15 +261,13 @@ class Site
 
     /**
      * Set updated
-     *
-     * @param \DateTime $updated
+     * @ORM\PreUpdate()
      * @return Site
      */
-    public function setUpdated($updated)
+    public function setUpdated()
     {
-        $this->updated = $updated;
+        $this->updated = new \DateTime();
 
-        return $this;
     }
 
     /**
@@ -399,4 +394,6 @@ class Site
     {
         return $this->uid;
     }
+
+
 }

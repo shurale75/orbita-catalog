@@ -129,4 +129,9 @@ class Category
     {
         return $this->sites;
     }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

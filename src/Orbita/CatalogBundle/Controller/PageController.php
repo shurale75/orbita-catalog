@@ -1,10 +1,7 @@
 <?php
 
 namespace Orbita\CatalogBundle\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Orbita\CatalogBundle\Entity\Enquiry;
 
 
 class PageController extends Controller
@@ -25,12 +22,9 @@ class PageController extends Controller
     public function bodyAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $sites = $em->getRepository('OrbitaCatalogBundle:Site')->getSitesByCategory($id);
+        $sites = $em->getRepository('OrbitaCatalogBundle:Site')->getHPSites();
+//        $sites = $em->getRepository('OrbitaCatalogBundle:Site')->getLatestSites(5);
 
         return $this->render('OrbitaCatalogBundle:Page:body.html.twig', array('sites' => $sites));
     }
-
-
-
-
 }

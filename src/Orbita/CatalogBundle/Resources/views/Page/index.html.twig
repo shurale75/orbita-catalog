@@ -1,7 +1,5 @@
 {% extends 'OrbitaCatalogBundle::layout.html.twig' %}
 
 {% block body %}
-    Body content
     {{ render(controller('OrbitaCatalogBundle:Page:body', { 'id': 4 } ))}}
-    {#{{ render(controller('OrbitaCatalogBundle:Category:show', { 'id': 4 }))}}#}
 {% endblock %}
