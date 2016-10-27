@@ -355,7 +355,7 @@ class Site
      * @param \Orbita\CatalogBundle\Entity\Category $catId
      * @return Site
      */
-    public function setCatId(\Orbita\CatalogBundle\Entity\Category $catId = null)
+    public function setCat(\Orbita\CatalogBundle\Entity\Category $catId = null)
     {
         $this->cat_id = $catId;
 
@@ -370,6 +370,11 @@ class Site
     public function getCatId()
     {
         return $this->cat_id;
+    }
+
+    public function getCatIdInt()
+    {
+        return $this->getCatId()->getId();
     }
 
     /**

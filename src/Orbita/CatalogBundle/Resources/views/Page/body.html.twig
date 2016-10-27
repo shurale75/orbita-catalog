@@ -1,10 +1,19 @@
 <section class="section">
-    <header>
-        <h3>Sites</h3>
-    </header>
-        {% for site in sites %}
+    <section>
+        <h4>Рекомендуемые сайты</h4>
+        {% for site in vips %}
             {% include 'OrbitaCatalogBundle:Parts:site.html.twig' %}
         {% else %}
-            <p>There are no recent sites</p>
+            <p>There are no vip sites</p>
         {% endfor %}
+    </section>
+    <hr>
+    <section>
+        <h4>Новые сайты в каталоге</h4>
+        {% for site in lasts %}
+            {% include 'OrbitaCatalogBundle:Parts:site.html.twig' %}
+        {% else %}
+            <p>There are no vip sites</p>
+        {% endfor %}
+    </section>
 </section>

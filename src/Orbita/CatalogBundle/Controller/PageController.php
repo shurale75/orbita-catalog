@@ -22,9 +22,12 @@ class PageController extends Controller
     public function bodyAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $sites = $em->getRepository('OrbitaCatalogBundle:Site')->getHPSites();
-//        $sites = $em->getRepository('OrbitaCatalogBundle:Site')->getLatestSites(5);
+//        $sites = $em->getRepository('OrbitaCatalogBundle:Site')->getHPSites();
+//        return $this->render('OrbitaCatalogBundle:Page:body.html.twig', array('sites' => $sites));
 
-        return $this->render('OrbitaCatalogBundle:Page:body.html.twig', array('sites' => $sites));
+        $vips = $em->getRepository('OrbitaCatalogBundle:Site')->getVipSites(5);
+        $lasts = $em->getRepository('OrbitaCatalogBundle:Site')->getLatestSites(10);
+        return $this->render('OrbitaCatalogBundle:Page:body.html.twig', array('vips' => $vips, 'lasts' => $lasts));
+
     }
 }

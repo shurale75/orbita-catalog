@@ -1,5 +1,15 @@
 {% extends 'OrbitaCatalogBundle::layout.html.twig' %}
 
 {% block body %}
-    {% include 'OrbitaCatalogBundle:Page:body.html.twig' %}
+    {#{% include 'OrbitaCatalogBundle:Page:body.html.twig' %}#}
+    <header>
+        <h3><a href="{{ path('orbita_catalog_homepage') }}">Главная каталога</a> >>> {{ ctitle }}</h3>
+    </header>
+    <section>
+        {% for site in sites %}
+            {% include 'OrbitaCatalogBundle:Parts:site.html.twig' %}
+        {% else %}
+            <p>There are no sites</p>
+        {% endfor %}
+    </section>
 {% endblock %}

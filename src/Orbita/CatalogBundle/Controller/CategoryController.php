@@ -10,6 +10,7 @@ class CategoryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $sites = $em->getRepository('OrbitaCatalogBundle:Site')->getSitesByCategory($id);
-        return $this->render('OrbitaCatalogBundle:Category:show.html.twig', array('sites' => $sites));
+        $ctitle = $em->getRepository('OrbitaCatalogBundle:Category')->getCategory($id);
+        return $this->render('OrbitaCatalogBundle:Category:show.html.twig', array('sites' => $sites, 'ctitle' => $ctitle));
     }
 }

@@ -1,23 +1,22 @@
 <section class="container-fluid">
-    <div class="row">
+    {#<div class="row">
         <header>
-            <h2><a href="{{ site.link }}">{{ site.title }}</a></h2>
+            <h4><a href="{{ site.link }}">{{ site.title }}</a></h4>
         </header>
-    </div>
+    </div>#}
     <div class="row">
         {% if site.vip == 1 %}
             <div class="col-sm-2"><img class='site_img' src="{{ asset(['images/', site.image]|join) }}" /></div>
-            <p class="col-sm-10 site_description">
-                <p>{{ site.description(500) }}</p>
-                <p class="continue"><a href="{{ site.link }}">{{ site.link }}</a></p>
-            </p>
-        {% else %}
-            <p class="col-sm-12 site_description">
-                <p>{{ site.description(500) }}</p>
-                <p class="continue"><a href="{{ site.link }}">{{ site.link }}</a></p>
-            </p>
         {% endif %}
-
+        <div class="col-sm-10">
+            <h4><a href="{{ site.link }}">{{ site.title }}</a></h4>
+            <p class="site_description">
+                <p>{{ site.description(500) }}</p>
+                <p class="continue"><a href="{{ site.link }}">{{ site.link }}</a></p>
+            </p>
+        </div>
+        {% set catid = site.getCatIdInt() %}
+        Раздел каталога:<a href="{{ path('orbita_catalog_category', { 'id': catid }) }}">{{ site.getCatId() }}</a>
     </div>
 
 </section>
